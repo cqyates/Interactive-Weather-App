@@ -4,7 +4,7 @@ $(document).ready(function () {
     const lon = position.coords.longitude;
     $.ajax({
       type: "GET",
-      url: `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=45ebbd33aab5c77a18994061b0a6ee6a&units=imperial`,
+      url: `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=45ebbd33aab5c77a18994061b0a6ee6a&units=imperial`,
       dataType: "json",
       success: function(response) {
         console.log(response);
@@ -60,7 +60,7 @@ $(document).ready(function () {
   function searchWeather(searchValue) {
     $.ajax({
       type: "GET",
-      url: `http://api.openweathermap.org/data/2.5/weather?q=${searchValue}&appid=45ebbd33aab5c77a18994061b0a6ee6a&units=imperial`,
+      url: `https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&appid=45ebbd33aab5c77a18994061b0a6ee6a&units=imperial`,
       dataType: "json",
       success: function(response) {
         $("#today").empty();
