@@ -3,6 +3,7 @@
 }
 body {
   margin: 0;
+  font-size: 16pt
 }
 video {
   right: 0;
@@ -10,12 +11,4 @@ video {
   position: fixed;
   min-width: 100%;
   min-height: 100%;
-}
-#search-box {
-  position: fixed;
-  bottom: 40%;
-  left: 40%;
-  background: rgba(218, 211, 211, 0.838);
-  width:25%;
-  padding: 20px
 }
