@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+video {
+  right: 0;
+  bottom:0;
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+}
+#search-box {
+  position: fixed;
+  bottom: 40%;
+  left: 40%;
+  background: rgba(218, 211, 211, 0.838);
+  width:25%;
+  padding: 20px
+}
