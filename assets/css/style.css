@@ -12,3 +12,6 @@ video {
   min-width: 100%;
   min-height: 100%;
 }
+#search-box {
+  margin-top: 1rem;
+}

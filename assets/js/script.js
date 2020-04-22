@@ -2,7 +2,30 @@ $(document).ready(function () {
   function success(position) {
     const lat  = position.coords.latitude;
     const lon = position.coords.longitude;
-    console.log(lon,lat)
+    $.ajax({
+      type: "GET",
+      url: `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=45ebbd33aab5c77a18994061b0a6ee6a&units=imperial`,
+      dataType: "json",
+      success: function(response) {
+        console.log(response);
+        $("#today").empty();
+        makeRow(response.name);
+        var currentTemp = Math.floor(response.main.temp);
+        var feelsTemp = Math.floor(response.main.feels_like)
+        var card = $("<div>").addClass("card");
+        var cardBody = $("<div>").addClass("card-body");
+        var title = $("<h1>").addClass("card-title").text(response.name);
+        var description = $("<h4>").addClass("card-text").text(response.weather[0].description)
+        var temp = $("<h4>").addClass("card-text").text("current tempature is: " + currentTemp +String.fromCharCode(176));
+        var feelsLike = $("<h4>").addClass("card-text").text("feels like " + feelsTemp +String.fromCharCode(176))
+        var wind = $("<h4>").addClass("card-text").text("current wind speed: " + response.wind.speed)
+     
+        $("#today").append(card);
+        card.append(cardBody);
+        cardBody.append(title,description,temp,feelsLike,wind)
+      }
+    })
+   
   }
 
   function error() {
@@ -14,6 +37,7 @@ $(document).ready(function () {
     status.textContent = 'Locating…';
     navigator.geolocation.getCurrentPosition(success, error);
   }
+
 
 
   $("#search-btn").on("click", function(){
@@ -42,7 +66,6 @@ $(document).ready(function () {
         $("#today").empty();
         var currentTemp = Math.floor(response.main.temp);
         var feelsTemp = Math.floor(response.main.feels_like)
-        console.log(response)
         var card = $("<div>").addClass("card");
         var cardBody = $("<div>").addClass("card-body");
         var title = $("<h1>").addClass("card-title").text(response.name);
